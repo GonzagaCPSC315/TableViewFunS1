@@ -19,10 +19,21 @@ import UIKit
 // we are going to do #1, because ADS does #2
 
 class DogTableViewController: UIViewController {
+    
+    var dogs = [Dog]()
+    
+    @IBOutlet var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        initializeDogs()
+    }
+    
+    func initializeDogs() {
+        dogs.append(Dog(name: "Lassie", breed: "Collie"))
+        dogs.append(Dog(name: "AirBud", breed: "Retriever"))
+        dogs.append(Dog(name: "Spike", breed: "Bulldog"))
     }
 
 

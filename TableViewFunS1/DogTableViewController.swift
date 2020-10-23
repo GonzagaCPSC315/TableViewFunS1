@@ -18,8 +18,7 @@ import UIKit
 // you can't add any other views, because the root view is the table view
 // we are going to do #1, because ADS does #2
 
-class DogTableViewController: UIViewController {
-    
+class DogTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var dogs = [Dog]()
     
     @IBOutlet var tableView: UITableView!
@@ -37,5 +36,36 @@ class DogTableViewController: UIViewController {
     }
 
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // we are only going to have one section
+        // table view is asking its data source
+        // "how many rows in this section?"
+        if section == 0 {
+            return dogs.count
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // table view is asking its data source
+        // "what cell should I display at this indexPath?"
+        // IndexPath has 2 properties
+        // section number (we can ignore this)
+        // row number (corresponds to an index in our
+        // underlying dog array)
+        // lets get the dog at index indexPath.row
+        let row = indexPath.row
+        let dog = dogs[row]
+        
+        // now we need a DogTableViewCell!!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DogCell", for: indexPath) as! DogTableViewCell
+        // we don't need to create a "new cell" for each our dogs and here is why
+        // lets say there are 10000 dogs in our dogs array
+        // we don't need 100000 cells because there won't be 10000 cells display at one time in our table view
+        
+        cell.update(with: dog)
+        
+        return cell
+    }
 }
 

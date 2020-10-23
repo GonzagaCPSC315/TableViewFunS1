@@ -22,5 +22,10 @@ class DogTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func update(with dog: Dog) {
+        nameLabel.text = dog.name
+        breedLabel.text = dog.breed 
+    }
 
 }

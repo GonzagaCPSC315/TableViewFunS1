@@ -14,6 +14,7 @@
 		4578E97F2540A6F50086D8AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4578E97E2540A6F50086D8AB /* Assets.xcassets */; };
 		4578E9822540A6F50086D8AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4578E9802540A6F50086D8AB /* LaunchScreen.storyboard */; };
 		4578E98A2540AA330086D8AB /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4578E9892540AA330086D8AB /* Dog.swift */; };
+		4578E9B22543455A0086D8AB /* DogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4578E9B12543455A0086D8AB /* DogTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4578E9812540A6F50086D8AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4578E9832540A6F50086D8AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4578E9892540AA330086D8AB /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
+		4578E9B12543455A0086D8AB /* DogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				4578E9802540A6F50086D8AB /* LaunchScreen.storyboard */,
 				4578E9832540A6F50086D8AB /* Info.plist */,
 				4578E9892540AA330086D8AB /* Dog.swift */,
+				4578E9B12543455A0086D8AB /* DogTableViewCell.swift */,
 			);
 			path = TableViewFunS1;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			files = (
 				4578E97A2540A6F30086D8AB /* DogTableViewController.swift in Sources */,
 				4578E9762540A6F30086D8AB /* AppDelegate.swift in Sources */,
+				4578E9B22543455A0086D8AB /* DogTableViewCell.swift in Sources */,
 				4578E98A2540AA330086D8AB /* Dog.swift in Sources */,
 				4578E9782540A6F30086D8AB /* SceneDelegate.swift in Sources */,
 			);

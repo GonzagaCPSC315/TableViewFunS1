@@ -85,7 +85,21 @@ class DogTableViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @IBAction func unwindToDogTableViewController(segue: UIStoryboardSegue) {
-        
+        // grab the dog!!
+        if let identifier = segue.identifier {
+            if identifier == "SaveUnwindSegue" {
+                if let dogDetailVC = segue.source as? DogDetailViewController {
+                    if let dog = dogDetailVC.dogOptional {
+                        // get the currently selected index path
+                        if let indexPath = tableView.indexPathForSelectedRow {
+                            dogs[indexPath.row] = dog
+                            // force update the table view
+                            tableView.reloadData()
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

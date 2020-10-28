@@ -67,5 +67,21 @@ class DogTableViewController: UIViewController, UITableViewDataSource, UITableVi
         
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "DetailSegue" {
+                if let dogDetailVC = segue.destination as? DogDetailViewController {
+                    // we need to get the indexPath for the row the user clicked on
+                    // we need to get the dog at the row
+                    // pass the dog into detailDetailVC
+                    if let indexPath = tableView.indexPathForSelectedRow {
+                        let dog = dogs[indexPath.row]
+                        dogDetailVC.dogOptional = dog
+                    }
+                }
+            }
+        }
+    }
 }
 

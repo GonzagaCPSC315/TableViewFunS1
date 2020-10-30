@@ -81,6 +81,11 @@ class DogTableViewController: UIViewController, UITableViewDataSource, UITableVi
                     }
                 }
             }
+            else if identifier == "AddSegue" {
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    tableView.deselectRow(at: indexPath, animated: true)
+                }
+            }
         }
     }
     
@@ -93,9 +98,14 @@ class DogTableViewController: UIViewController, UITableViewDataSource, UITableVi
                         // get the currently selected index path
                         if let indexPath = tableView.indexPathForSelectedRow {
                             dogs[indexPath.row] = dog
-                            // force update the table view
-                            tableView.reloadData()
                         }
+                        else {
+                            // we are undwinding from an AddSegue
+                            // add the new dog to the dogs
+                            dogs.append(dog)
+                        }
+                        // force update the table view
+                        tableView.reloadData()
                     }
                 }
             }

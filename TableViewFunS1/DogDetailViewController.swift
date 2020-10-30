@@ -40,6 +40,11 @@ class DogDetailViewController: UIViewController {
                         dog.name = name
                         dog.breed = breed
                     }
+                    else {
+                        // there is no dog passed in...
+                        // we got here via AddSegue
+                        dogOptional = Dog(name: name, breed: breed)
+                    }
                 }
             }
         }

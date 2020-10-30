@@ -74,6 +74,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="sri-m1-TAU">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="2R2-lN-s0r">
+                            <connections>
+                                <action selector="editButtonPressed:" destination="BYZ-38-t0r" id="i7q-TN-O0A"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="hgZ-c8-QzT">
                             <connections>
                                 <segue destination="jNi-Ev-alA" kind="show" identifier="AddSegue" id="Q2r-5c-cpQ"/>

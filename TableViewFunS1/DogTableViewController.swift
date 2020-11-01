@@ -70,6 +70,7 @@ class DogTableViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
+    // MARK: Lab #19.a.
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let dog = dogs.remove(at: sourceIndexPath.row)
         dogs.insert(dog, at: destinationIndexPath.row)
@@ -77,10 +78,14 @@ class DogTableViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.reloadData()
     }
     
+    // MARK: Lab #20
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        dogs.remove(at: indexPath.row)
-        
-        tableView.deleteRows(at: [indexPath], with: .fade)
+        // GS: adding this for Lab #20 solution
+        if editingStyle == .delete {
+            dogs.remove(at: indexPath.row)
+            // MARK: Lab #20.a.
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

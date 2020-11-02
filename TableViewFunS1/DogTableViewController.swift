@@ -19,20 +19,33 @@ import UIKit
 // we are going to do #1, because ADS does #2
 
 class DogTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    var dogs = [Dog]()
+    var dogs = [Dog]() {
+        didSet {
+            Dog.saveDogsToFile(dogs: dogs)
+            // another place to put this call could be
+            // put in applicationDidEnterBackground()
+        }
+    }
     
     @IBOutlet var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        print(Dog.pListURL)
         initializeDogs()
     }
     
     func initializeDogs() {
-        dogs.append(Dog(name: "Lassie", breed: "Collie"))
-        dogs.append(Dog(name: "AirBud", breed: "Retriever"))
-        dogs.append(Dog(name: "Spike", breed: "Bulldog"))
+        if let decodedDogs = Dog.loadDogsFromFile() {
+            dogs = decodedDogs
+        }
+        else {
+            dogs.append(Dog(name: "Lassie", breed: "Collie"))
+            dogs.append(Dog(name: "AirBud", breed: "Retriever"))
+            dogs.append(Dog(name: "Spike", breed: "Bulldog"))
+        }
     }
 
 
